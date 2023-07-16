@@ -1,0 +1,8 @@
+
+# Some Issues i faced
+
+### i faced the logout recursion function call
+    > this is because the view of logout functionality are named logout which is the same of the logout function    from django framework that take care of the logout user request.
+
+### the Issue that django-auth provide many functionality (login,register,etc) that you may won't need
+    > add some variables in settings.py that exclude and just define what pages you want to use from the library itself.

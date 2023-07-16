@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Django Google Sign In</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'allauth/account/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'allauth/socialaccount/style.css' %}">
+    </head>
+    <body>
+        {% load socialaccount %}
+        <h2>Google Login</h2>
+
+        {% if user.is_authenticated %}
+            <h2>your fullname: {{user.get_full_name }}</h2>
+            <h2>your username: {{user.username}}</h2>
+            <h2>your first name: {{user.first_name}}</h2>
+            <h2>your last name: {{user.last_name}}</h2>
+            <hr>
+            <h1>you are in</h1>
+        {% else %}
+            <hr>
+            <h1>you are out</h1>
+        {% endif %}
+        <hr>
+
+        <a href="{% provider_login_url 'google' %}">Login with Google</a>
+        <a href="/logout">Logout</a>
+    </body>
+</html>
+
+
+
+<style>
+    body {
+        background-color: lightblue;
+    }
+
+
+</style>
